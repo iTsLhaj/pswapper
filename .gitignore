@@ -4,6 +4,8 @@
 # Custom !
 cmake-build-debug/
 .idea/
+push_swap
+checker
 
 # Prerequisites
 *.d

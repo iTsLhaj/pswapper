@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/push_swap2.dir/src/main.c.o CMakeFiles/push_swap2.dir/src/moves/swap.c.o CMakeFiles/push_swap2.dir/src/moves/push.c.o CMakeFiles/push_swap2.dir/src/moves/rotate.c.o CMakeFiles/push_swap2.dir/src/moves/reverse_rotate.c.o -o push_swap2  lib/libft.a lib/libftprintf.a 
