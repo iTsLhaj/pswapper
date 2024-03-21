@@ -31,8 +31,8 @@ typedef struct	s_stack
 void	ps_ascii_draw_bot(void);
 void	ps_ascii_draw_mid(int n, bool empty);
 void	ps_ascii_draw_top(void);
-void	ps_draw_stack(t_stack *stack);
-void	ps_draw_stacks(t_stack *first, t_stack *second);
+void	ps_draw_stack(t_stack *stack, char label);
+void	ps_draw_stacks(t_stack *first, t_stack *second, char *labels);
 
 #endif
 
@@ -47,5 +47,12 @@ void	ps_argparse(t_stack	**stack, int argc, char **argv);
 t_stack	*ps_stack_last(t_stack *stack);
 t_stack	*ps_stack_append(t_stack **stack, int n);
 void	ps_stack_free(t_stack **stack);
+int		ps_stack_length(t_stack *stack);
+
+/* stack operations */
+void	ps_stack_swap(t_stack **stack);
+void	ps_stack_push(t_stack **dst, t_stack **src);
+void	ps_stack_rotate(t_stack **stack);
+void	ps_stack_reverse_rotate(t_stack **stack);
 
 #endif

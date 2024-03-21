@@ -21,5 +21,7 @@ add_executable(push_swap2 src/main.c
         src/stack/ps_stack_last.c
         src/parser/ps_parser.c
         src/stack/ps_stack_free.c
-        src/parser/ps_parser_utils.c)
+        src/parser/ps_parser_utils.c
+        src/stack/ps_stack_length.c
+)
 target_link_libraries(push_swap2 ${LIBS})
