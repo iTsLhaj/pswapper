@@ -47,6 +47,7 @@ void	ps_argparse(t_stack	**stack, int argc, char **argv);
 t_stack	*ps_stack_last(t_stack *stack);
 t_stack	*ps_stack_append(t_stack **stack, int n);
 void	ps_stack_free(t_stack **stack);
+bool	ps_stack_is_sorted(t_stack *stack);
 int		ps_stack_length(t_stack *stack);
 
 /* stack operations */
@@ -57,7 +58,7 @@ void	ps_stack_reverse_rotate(t_stack **stack, char label);
 
 /* stack sorting utils */
 t_stack	*ps_stack_get_biggest(t_stack *stack);
-
+t_stack	*ps_stack_get_smallest(t_stack *stack);
 
 /* stack sorting functions ! */
 void	ps_stack_sthree(t_stack **stack_a);
