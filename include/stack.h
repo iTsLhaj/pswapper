@@ -50,9 +50,16 @@ void	ps_stack_free(t_stack **stack);
 int		ps_stack_length(t_stack *stack);
 
 /* stack operations */
-void	ps_stack_swap(t_stack **stack);
-void	ps_stack_push(t_stack **dst, t_stack **src);
-void	ps_stack_rotate(t_stack **stack);
-void	ps_stack_reverse_rotate(t_stack **stack);
+void	ps_stack_swap(t_stack **stack, char label);
+void	ps_stack_push(t_stack **dst, t_stack **src, char label);
+void	ps_stack_rotate(t_stack **stack, char label);
+void	ps_stack_reverse_rotate(t_stack **stack, char label);
+
+/* stack sorting utils */
+t_stack	*ps_stack_get_biggest(t_stack *stack);
+
+
+/* stack sorting functions ! */
+void	ps_stack_sthree(t_stack **stack_a);
 
 #endif

@@ -1,7 +1,7 @@
 #include <stack.h>
 
 
-void	ps_stack_swap(t_stack **stack)
+void	ps_stack_swap(t_stack **stack, char label)
 {
 	int	temp;
 
@@ -12,4 +12,5 @@ void	ps_stack_swap(t_stack **stack)
 	temp = (*stack)->value;
 	(*stack)->value = (*stack)->next->value;
 	(*stack)->next->value = temp;
+	ft_printf("s%c\n", label);
 }

@@ -1,7 +1,7 @@
 #include <stack.h>
 
 
-void	ps_stack_push(t_stack **dst, t_stack **src)
+void	ps_stack_push(t_stack **dst, t_stack **src, char label)
 {
 	t_stack	*old_head;
 
@@ -20,4 +20,5 @@ void	ps_stack_push(t_stack **dst, t_stack **src)
 		old_head->next = *dst;
 		*dst = old_head;
 	}
+	ft_printf("p%c\n", label);
 }
