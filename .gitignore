@@ -6,6 +6,7 @@ cmake-build-debug/
 .idea/
 push_swap
 checker
+CmakeFiles/
 
 # Prerequisites
 *.d
