@@ -11,14 +11,21 @@ void	ps_stack_push(t_stack **dst, t_stack **src, char label)
 		return;
 	old_head = *src;
 	*src = (*src)->next;
-	(*src)->prev = NULL;
+	if (*src)
+		(*src)->prev = NULL;
 	if (*dst == NULL)
+	{
 		*dst = old_head;
+		(*dst)->next = NULL;
+		(*dst)->prev = NULL;
+	}
 	else
 	{
 		(*dst)->prev = old_head;
 		old_head->next = *dst;
 		*dst = old_head;
 	}
+	ps_stack_set_index(*dst);
+	ps_stack_set_index(*src);
 	ft_printf("p%c\n", label);
 }

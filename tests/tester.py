@@ -23,6 +23,8 @@ if __name__ == "__main__":
     bounds = (args.min, args.max)
     amount = args.amount
     tests = args.tests
+    ok, err = 0, 0
+    moves = []
 
     os.system('clear')
     print("\n")
@@ -33,7 +35,10 @@ if __name__ == "__main__":
         result = os.popen(" ".join([command, "|", "./checker", " ".join(list(map(str, numbers)))])).read().rstrip('\n')
         if (result == "OK"):
             print(f" - [[green]{result}[/green]] ", end='')
+            ok += 1
         else:
             print(f" - [[red]{result}[/red]] ", end='')
-        print(f"with {output.readlines().__len__()} moves !")
-    print("\n")
+            err += 1
+        moves.append(output.readlines().__len__())
+        print(f"with {moves[-1]} moves !")
+    print(f"\n\n - {ok} OK | {err} KO\n - average moves {int(sum(moves) / moves.__len__())}\n")

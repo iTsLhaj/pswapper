@@ -5,6 +5,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <stddef.h>
+# include <limits.h>
 # include <colors.h>
 # include <libft.h>
 
@@ -14,6 +15,9 @@ typedef struct	s_stack
 	struct s_stack	*prev;
 	struct s_stack	*target;
 	int				value;
+	int				index;
+	int				pcost;
+	int				price;
 }	t_stack;
 
 #ifndef ASCII_ART
@@ -53,14 +57,32 @@ int		ps_stack_length(t_stack *stack);
 /* stack operations */
 void	ps_stack_swap(t_stack **stack, char label);
 void	ps_stack_push(t_stack **dst, t_stack **src, char label);
+/*
 void	ps_stack_rotate(t_stack **stack, char label);
 void	ps_stack_reverse_rotate(t_stack **stack, char label);
+*/
+void	ra(t_stack **stack);
+void	rb(t_stack **stack);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack);
+void	rrb(t_stack **stack);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 /* stack sorting utils */
 t_stack	*ps_stack_get_biggest(t_stack *stack);
 t_stack	*ps_stack_get_smallest(t_stack *stack);
+void	ps_stack_assign_targets(t_stack *stack_a, t_stack *stack_b);
+void	ps_stack_set_index(t_stack *stack);
+int		ps_get_push_to_top_price(t_stack *stack, t_stack *node);
+void	ps_setpp(t_stack **stack_a, t_stack **stack_b);
+void	ps_set_price(t_stack **stack_b);
+t_stack	*ps_get_cheapest(t_stack *stack);
+// void	ps_stack_putontop(t_stack **stack, t_stack *node);
+void	ps_stack_putontop(t_stack **stack_a, t_stack **stack_b, t_stack *node_a, t_stack *node_b);
 
 /* stack sorting functions ! */
 void	ps_stack_sthree(t_stack **stack_a);
+void	ps_stack_sfive(t_stack **stack_a, t_stack **stack_b);
+void	ps_stack_smore(t_stack **stack_a, t_stack **stack_b);
 
 #endif

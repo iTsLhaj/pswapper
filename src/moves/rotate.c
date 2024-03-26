@@ -1,7 +1,7 @@
 #include <stack.h>
 
 
-void	ps_stack_rotate(t_stack **stack, char label)
+static void	ps_stack_rotate(t_stack **stack)
 {
 	t_stack	*new_head;
 	t_stack	*last;
@@ -13,5 +13,30 @@ void	ps_stack_rotate(t_stack **stack, char label)
 	(*stack)->next = NULL;
 	(*stack)->prev = last;
 	*stack = new_head;
-	ft_printf("r%c\n", label);
+	ps_stack_set_index(*stack);
+}
+
+/*
+void	ra(t_stack **stack);
+void	rb(t_stack **stack);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+ */
+
+void	ra(t_stack **stack)
+{
+	ps_stack_rotate(stack);
+	ft_printf("r%c\n", 'a');
+}
+
+void	rb(t_stack **stack)
+{
+	ps_stack_rotate(stack);
+	ft_printf("r%c\n", 'b');
+}
+
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	ps_stack_rotate(stack_a);
+	ps_stack_rotate(stack_b);
+	ft_printf("r%c\n", 'r');
 }

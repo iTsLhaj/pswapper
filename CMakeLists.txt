@@ -27,5 +27,11 @@ add_executable(push_swap2 src/main.c
         src/sorting/utils/ps_stack_biggest.c
         src/sorting/utils/ps_stack_smallest.c
         src/stack/ps_stack_is_sorted.c
+        src/stack/ps_stack_target.c
+        src/sorting/ps_stack_sort_more.c
+        src/sorting/utils/ps_stack_indexer.c
+        src/sorting/utils/ps_stack_cost.c
+        src/sorting/utils/ps_stack_leviosa.c
+        src/sorting/ps_stack_sort_five.c
 )
 target_link_libraries(push_swap2 ${LIBS})
