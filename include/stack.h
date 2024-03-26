@@ -71,7 +71,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 /* stack sorting utils */
 t_stack	*ps_stack_get_biggest(t_stack *stack);
 t_stack	*ps_stack_get_smallest(t_stack *stack);
-void	ps_stack_assign_targets(t_stack *stack_a, t_stack *stack_b);
+void	ps_stack_assign_targets(t_stack *dst, t_stack *src, int mode);
 void	ps_stack_set_index(t_stack *stack);
 int		ps_get_push_to_top_price(t_stack *stack, t_stack *node);
 void	ps_setpp(t_stack **stack_a, t_stack **stack_b);
