@@ -41,7 +41,8 @@ bool	ps_verify_multi_(char **args_)
 
 void	ps_raise_error(void)
 {
-	ft_printf("%sError\n%s", BRED, COLOR_RESET);
+	// ft_printf(1, "%sError\n%s", BRED, COLOR_RESET);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
