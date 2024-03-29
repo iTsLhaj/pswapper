@@ -1,3 +1,0 @@
-/home/meow/workspace/.clion_projects/push_swap2/CMakeFiles/push_swap2.dir
-/home/meow/workspace/.clion_projects/push_swap2/CMakeFiles/edit_cache.dir
-/home/meow/workspace/.clion_projects/push_swap2/CMakeFiles/rebuild_cache.dir
