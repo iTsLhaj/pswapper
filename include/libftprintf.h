@@ -21,9 +21,9 @@ typedef unsigned long long	t_uintptr;
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		ft_putmem(void *p);
-void		ft_putnbr(int n, int *counter);
-void		ft_putunb(unsigned int n, int *counter);
-void		ft_puthex(unsigned int n, int up, int *counter);
+void	ft_putnbr(int n, int *counter);
+void	ft_putunb(unsigned int n, int *counter);
+void	ft_puthex(unsigned int n, int up, int *counter);
 
 int		ft_printf(char *buffer, ...);
 

@@ -1,14 +1,13 @@
 #include <stack.h>
 
-
 void	ps_stack_push(t_stack **dst, t_stack **src, char label)
 {
 	t_stack	*old_head;
 
 	if (src == NULL || dst == NULL)
-		return;
+		return ;
 	if (*src == NULL)
-		return;
+		return ;
 	old_head = *src;
 	*src = (*src)->next;
 	if (*src)

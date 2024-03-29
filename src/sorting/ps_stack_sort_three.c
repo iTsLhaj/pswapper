@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 void	ps_stack_sthree(t_stack **stack_a)
 {
 	t_stack	*biggest;

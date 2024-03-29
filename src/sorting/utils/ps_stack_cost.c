@@ -1,41 +1,6 @@
 #include <stack.h>
 
-
-t_stack	*ps_get_cheapest(t_stack *stack)
-{
-	t_stack	*cheapest;
-
-	cheapest = NULL;
-	while (stack)
-	{
-		if (!cheapest)
-			cheapest = stack;
-		else if (stack->price <= cheapest->price)
-			cheapest = stack;
-		stack = stack->next;
-	}
-	return (cheapest);
-}
-
-void	ps_setpp(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*head;
-
-	head = *stack_a;
-	while (head)
-	{
-		head->pcost = ps_get_push_to_top_price(*stack_a, head);
-		head = head->next;
-	}
-	head = *stack_b;
-	while (head)
-	{
-		head->pcost = ps_get_push_to_top_price(*stack_b, head);
-		head = head->next;
-	}
-}
-
-int		ps_get_push_to_top_price(t_stack *stack, t_stack *node)
+static int	cometh_helper(t_stack *stack, t_stack *node)
 {
 	int	median;
 
@@ -46,14 +11,43 @@ int		ps_get_push_to_top_price(t_stack *stack, t_stack *node)
 		return (ps_stack_length(stack) - node->index);
 }
 
-void	ps_set_price(t_stack **stack_b)
+/* cometh: The Tax Collector */
+void	ps_cometh(t_stack	**stack_a, t_stack **stack_b)
 {
-	t_stack	*stack;
+	t_stack	*head;
 
-	stack = *stack_b;
+	head = *stack_a;
+	while (head)
+	{
+		head->pcost = cometh_helper(*stack_a, head);
+		head = head->next;
+	}
+	head = *stack_b;
+	while (head)
+	{
+		head->pcost = cometh_helper(*stack_b, head);
+		head = head->next;
+	}
+	head = *stack_a;
+	while (head)
+	{
+		head->price = head->pcost + head->target->pcost;
+		head = head->next;
+	}
+}
+
+t_stack	*ps_get_cheapest(t_stack *stack)
+{
+	t_stack	*cheapest_;
+
+	cheapest_ = NULL;
 	while (stack)
 	{
-		stack->price = stack->pcost + stack->target->pcost + 1;
+		if (cheapest_ == NULL)
+			cheapest_ = stack;
+		else if (cheapest_->price > stack->price)
+			cheapest_ = stack;
 		stack = stack->next;
 	}
+	return (cheapest_);
 }

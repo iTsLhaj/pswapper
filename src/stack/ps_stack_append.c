@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 t_stack	*ps_stack_append(t_stack **stack, int n)
 {
 	t_stack	*new;

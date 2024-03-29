@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 int	ps_stack_length(t_stack *stack)
 {
 	int	size;

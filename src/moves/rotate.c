@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 static void	ps_stack_rotate(t_stack **stack)
 {
 	t_stack	*new_head;
@@ -15,12 +14,6 @@ static void	ps_stack_rotate(t_stack **stack)
 	*stack = new_head;
 	ps_stack_set_index(*stack);
 }
-
-/*
-void	ra(t_stack **stack);
-void	rb(t_stack **stack);
-void	rr(t_stack **stack_a, t_stack **stack_b);
- */
 
 void	ra(t_stack **stack)
 {

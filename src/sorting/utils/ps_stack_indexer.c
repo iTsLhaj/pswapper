@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 void	ps_stack_set_index(t_stack *stack)
 {
 	int	i;

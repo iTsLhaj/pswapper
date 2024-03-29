@@ -1,10 +1,10 @@
 #include <stack.h>
 
-
 static bool	ps_is_forbidden(char c)
 {
-	char	*allowed = "0123456789-+";
+	char	*allowed;
 
+	allowed = "0123456789-+";
 	while (*allowed)
 	{
 		if (*allowed == c)
@@ -37,4 +37,21 @@ bool	ps_verify_multi_(char **args_)
 		i++;
 	}
 	return (true);
+}
+
+void	ps_raise_error(void)
+{
+	ft_printf("%sError\n%s", BRED, COLOR_RESET);
+	exit(1);
+}
+
+bool	ps_contain_space(char *arg)
+{
+	while (*arg)
+	{
+		if (*arg == ' ')
+			return (true);
+		arg++;
+	}
+	return (false);
 }

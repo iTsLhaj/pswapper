@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 t_stack	*ps_stack_last(t_stack *stack)
 {
 	if (stack == NULL)

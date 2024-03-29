@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 static void	ps_stack_reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
@@ -9,7 +8,7 @@ static void	ps_stack_reverse_rotate(t_stack **stack)
 	last = ps_stack_last(*stack);
 	temp = last->prev;
 	if (!temp)
-		return;
+		return ;
 	(*stack)->prev = last;
 	last->next = *stack;
 	last->prev = NULL;
@@ -17,12 +16,6 @@ static void	ps_stack_reverse_rotate(t_stack **stack)
 	*stack = last;
 	ps_stack_set_index(*stack);
 }
-
-/*
-void	rra(t_stack **stack);
-void	rrb(t_stack **stack);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
- */
 
 void	rra(t_stack **stack)
 {

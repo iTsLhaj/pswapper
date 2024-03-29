@@ -1,113 +1,73 @@
 #include <stack.h>
 
-
-void		ps_stack_putontop(t_stack **stack_a, t_stack **stack_b, t_stack *node_a, t_stack *node_b)
+static int	ps_set_instructions(t_fly *data, int *op_cfg)
 {
-	if (stack_a && node_a)
+	op_cfg[0] = -1;
+	op_cfg[1] = -1;
+
+	if (data->f_node->index > (ps_stack_length((*data->f_stack)) / 2))
+		op_cfg[0] = 1;
+	else
+		op_cfg[0] = 0;
+	if (data->s_node->index > (ps_stack_length((*data->s_stack)) / 2))
+		op_cfg[1] = 1;
+	else
+		op_cfg[1] = 0;
+	return (0);
+}
+
+
+void	ps_fly_on_your_own(t_stack **stack, t_stack *node, char label)
+{
+	int		op;
+
+	op = -1;
+	if (node->index > (ps_stack_length(*stack) / 2))
+		op = 1;
+	else
+		op = 0;
+	while (*stack != node)
 	{
-		if (node_a->index > (ps_stack_length(*stack_a) / 2))
+		if (op == 0)
 		{
-			while (*stack_a != node_a)
-				rra(stack_a);
+			if (label == 'a')
+				ra(stack);
+			else
+				rb(stack);
 		}
 		else
 		{
-			while (*stack_a != node_a)
-				ra(stack_a);
-		}
-	}
-	if (stack_b && node_b)
-	{
-		if (node_b->index > (ps_stack_length(*stack_b) / 2))
-		{
-			while (*stack_b != node_b)
-				rrb(stack_b);
-		}
-		else
-		{
-			while (*stack_b != node_b)
-				rb(stack_b);
+			if (label == 'a')
+				rra(stack);
+			else
+				rrb(stack);
 		}
 	}
 }
 
-// static int	*set_median(t_stack **stack_a, t_stack **stack_b)
-//  {
-//  	int	*medians;
-//
-//  	medians = (int *)malloc(sizeof(int) * 2);
-//  	if (stack_a == NULL || stack_b == NULL)
-//  		return (NULL);
-//  	if (*stack_a)
-//  		medians[0] = (ps_stack_length(*stack_a) / 2);
-//  	else
-//  		medians[0] = -1;
-//  	if (*stack_b)
-//  		medians[1] = (ps_stack_length(*stack_b) / 2);
-//  	else
-//  		medians[1] = -1;
-//  	return (medians);
-//  }
-//
-// void		ps_stack_putontop(t_stack **stack_a, t_stack **stack_b, t_stack *node_a, t_stack *node_b)
-//  {
-//  	int	*medians;
-//  	t_stack	*bottoms[2];
-//
-//  	medians = set_median(stack_a, stack_b);
-//  	bottoms[0] = ps_stack_last(*stack_a);
-//  	bottoms[1] = ps_stack_last(*stack_b);
-//  	if (node_a == bottoms[0] && node_b == bottoms[1])
-//  	{
-//  		rrr(stack_a, stack_b);
-//  		return;
-//  	}
-//  	if (medians[0] != -1 && medians[1] != -1)
-//  	{
-//  		if (node_a->index <= medians[0] && node_b->index <= medians[1])
-//  		{
-//  			while (node_a->index <= medians[0] && node_b->index <= medians[1])
-//  				rr(stack_a, stack_b);
-//  		}
-//  		else
-//  		{
-//  			while (node_a->index > medians[0] && node_b->index > medians[1])
-//  				rrr(stack_a, stack_b);
-//  		}
-//  	}
-//  	else
-//  	{
-//  		if (medians[0] != -1 && medians[1] == -1)
-//  		{
-//  			if (node_a->index <= medians[0])
-//  			{
-//  				while (node_a->index <= medians[0])
-//  					ra(stack_a);
-//  			}
-//  			else
-//  			{
-//  				while (node_a->index > medians[0])
-//  					rra(stack_a);
-//  			}
-//  		}
-//  		else if (medians[0] == -1 && medians[1] != -1)
-//  		{
-//  			if (node_b->index <= medians[1])
-//  			{
-//  				while (node_b->index <= medians[1])
-//  					rb(stack_b);
-//  			}
-//  			else
-//  			{
-//  				while (node_b->index > medians[1])
-//  					rrb(stack_b);
-//  			}
-//  		}
-//  	}
-// 	free(medians);
-//  }
+void		ps_stack_putontop(t_fly *data)
+{
+	int	ops[2];
+	int	op;
 
-
-
-
-
+	op = -1;
+	ps_set_instructions(data, ops);
+	if (ops[0] != ops[1])
+	{
+		ps_fly_on_your_own(data->f_stack, data->f_node, data->label[0]);
+		ps_fly_on_your_own(data->s_stack, data->s_node, data->label[1]);
+	}
+	else
+	{
+		op = ops[0];
+		while ((*data->f_stack) != data->f_node && (*data->s_stack) != data->s_node)
+		{
+			if (op == 0)
+				rr(data->f_stack, data->s_stack);
+			else
+				rrr(data->f_stack, data->s_stack);
+		}
+		ps_fly_on_your_own(data->f_stack, data->f_node, data->label[0]);
+		ps_fly_on_your_own(data->s_stack, data->s_node, data->label[1]);
+	}
+}

@@ -1,6 +1,5 @@
 #include <stack.h>
 
-
 t_stack	*ps_stack_get_biggest(t_stack *stack)
 {
 	t_stack	*big;
