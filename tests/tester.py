@@ -30,7 +30,7 @@ if __name__ == "__main__":
     print("\n")
     for i in range(tests):
         numbers = random.sample(range(bounds[0], bounds[1]), amount)
-        command = " ".join(["bash", "push_swap", " ".join(list(map(str, numbers)))])
+        command = " ".join(["./push_swap", " ".join(list(map(str, numbers)))])
         output = os.popen(command)
         result = os.popen(" ".join([command, "|", "./checker", " ".join(list(map(str, numbers)))])).read().rstrip('\n')
         if (result == "OK"):

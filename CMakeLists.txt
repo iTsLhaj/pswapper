@@ -25,6 +25,9 @@ set(SRC_FILES
         src/sorting/ps_stack_sort_more.c
         src/sorting/ps_stack_sort_three.c
         src/sorting/ps_stack_sort_five.c
+        src/sorting/utils/ps_sort_chunks.c
+        src/sorting/utils/ps_stack_to_array.c
+        src/sorting/utils/ps_shift_back.c
 )
 
 # Executable

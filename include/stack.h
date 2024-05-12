@@ -68,10 +68,15 @@ void	ps_fly_on_your_own(t_stack **stack, t_stack *node, char label);
 void	ps_stack_putontop(t_fly *data);
 void	ps_cometh(t_stack	**stack_a, t_stack **stack_b);
 t_stack	*ps_get_cheapest(t_stack *stack);
+int		*ps_stack_to_array(t_stack *stack, int *size);
+void	ps_stack_indexer_v2(t_stack **stack, int *arr);
+int		ps_find_index(t_stack *stack, int ix, int n);
+void	ps_shift_all(t_stack **stack_a, t_stack **stack_b);
 
 /* stack sorting functions ! */
 void	ps_stack_sthree(t_stack **stack_a);
 void	ps_stack_sfive(t_stack **stack_a, t_stack **stack_b);
 void	ps_stack_smore(t_stack **stack_a, t_stack **stack_b);
+void	ps_sort_chunks(t_stack **stack_a, t_stack **stack_b);
 
 #endif

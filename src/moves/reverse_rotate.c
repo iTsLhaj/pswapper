@@ -14,7 +14,7 @@ static void	ps_stack_reverse_rotate(t_stack **stack)
 	last->prev = NULL;
 	temp->next = NULL;
 	*stack = last;
-	ps_stack_set_index(*stack);
+	// ps_stack_set_index(*stack);
 }
 
 void	rra(t_stack **stack)

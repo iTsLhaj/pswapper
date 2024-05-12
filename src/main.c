@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 			else if (ps_stack_length(stack_a) <= 5)
 				ps_stack_sfive(&stack_a, &stack_b);
 			else
-				ps_stack_smore(&stack_a, &stack_b);
+				ps_sort_chunks(&stack_a, &stack_b);
 		}
 		ps_stack_free(&stack_a);
 	}

@@ -94,6 +94,7 @@ void	ps_stack_smore(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (ps_stack_last(*stack_a) == ps_stack_get_smallest(*stack_a))
 		rra(stack_a);
-	while (!ps_stack_is_sorted(*stack_a))
-		ra(stack_a);
+	/** @todo: maybe this is the lopp that add's those 100-400 moves */
+	// while (!ps_stack_is_sorted(*stack_a))
+	// 	ra(stack_a);
 }
