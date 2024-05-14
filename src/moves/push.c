@@ -24,7 +24,5 @@ void	ps_stack_push(t_stack **dst, t_stack **src, char label)
 		old_head->next = *dst;
 		*dst = old_head;
 	}
-	// ps_stack_set_index(*dst);
-	// ps_stack_set_index(*src);
 	ft_printf("p%c\n", label);
 }

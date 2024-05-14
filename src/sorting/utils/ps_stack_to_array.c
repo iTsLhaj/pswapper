@@ -1,7 +1,6 @@
 #include <stack.h>
 
-
-int		*ps_stack_to_array(t_stack *stack, int *size_)
+int	*ps_stack_to_array(t_stack *stack, int *size_)
 {
 	int	i;
 	int	size;

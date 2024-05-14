@@ -10,7 +10,6 @@ set(SRC_FILES
         src/stack/ps_stack_free.c
         src/stack/ps_stack_length.c
         src/stack/ps_stack_is_sorted.c
-        src/stack/ps_stack_target.c
         src/moves/swap.c
         src/moves/push.c
         src/moves/rotate.c
@@ -20,12 +19,10 @@ set(SRC_FILES
         src/sorting/utils/ps_stack_biggest.c
         src/sorting/utils/ps_stack_smallest.c
         src/sorting/utils/ps_stack_indexer.c
-        src/sorting/utils/ps_stack_cost.c
         src/sorting/utils/ps_stack_leviosa.c
-        src/sorting/ps_stack_sort_more.c
         src/sorting/ps_stack_sort_three.c
         src/sorting/ps_stack_sort_five.c
-        src/sorting/utils/ps_sort_chunks.c
+        src/sorting/ps_sort_chunks.c
         src/sorting/utils/ps_stack_to_array.c
         src/sorting/utils/ps_shift_back.c
 )

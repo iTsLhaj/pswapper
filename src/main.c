@@ -7,12 +7,11 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac > 2)
+	if (ac >= 2)
 	{
 		ps_argparse(&stack_a, ac, av);
 		if (!ps_stack_is_sorted(stack_a))
 		{
-			ps_stack_set_index(stack_a);
 			if (ps_stack_length(stack_a) == 2)
 				ps_stack_swap(&stack_a, 'a');
 			else if (ps_stack_length(stack_a) == 3)

@@ -1,5 +1,3 @@
-
-
 #ifndef STACK_H
 # define STACK_H
 
@@ -15,21 +13,9 @@ typedef struct s_stack
 {
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	struct s_stack	*target;
 	int				value;
 	int				index;
-	int				pcost;
-	int				price;
 }	t_stack;
-
-typedef struct s_fly
-{
-	t_stack	**f_stack;
-	t_stack	**s_stack;
-	t_stack	*f_node;
-	t_stack	*s_node;
-	char	*label;
-}	t_fly;
 
 /* parser utils | functions */
 bool	ps_verify_single(char *args_);
@@ -46,8 +32,6 @@ t_stack	*ps_stack_append(t_stack **stack, int n);
 void	ps_stack_free(t_stack **stack);
 bool	ps_stack_is_sorted(t_stack *stack);
 int		ps_stack_length(t_stack *stack);
-void	ps_stack_targetize(t_stack **dst, t_stack **src,
-			t_stack *(*_get_closest)(t_stack *, t_stack *));
 
 /* stack operations */
 void	ps_stack_swap(t_stack **stack, char label);
@@ -65,9 +49,6 @@ t_stack	*ps_stack_get_biggest(t_stack *stack);
 t_stack	*ps_stack_get_smallest(t_stack *stack);
 void	ps_stack_set_index(t_stack *stack);
 void	ps_fly_on_your_own(t_stack **stack, t_stack *node, char label);
-void	ps_stack_putontop(t_fly *data);
-void	ps_cometh(t_stack	**stack_a, t_stack **stack_b);
-t_stack	*ps_get_cheapest(t_stack *stack);
 int		*ps_stack_to_array(t_stack *stack, int *size);
 void	ps_stack_indexer_v2(t_stack **stack, int *arr);
 int		ps_find_index(t_stack *stack, int ix, int n);

@@ -22,7 +22,7 @@ int	ps_find_index(t_stack *stack, int ix, int n)
 	while (stack)
 	{
 		if (stack->index <= ix || stack->index <= (ix + n))
-			break;
+			break ;
 		i++;
 		stack = stack->next;
 	}
@@ -50,7 +50,7 @@ void	ps_stack_indexer_v2(t_stack **stack, int *arr)
 	while (stack_)
 	{
 		stack_->index = get_index(
-			arr, stack_->value, ps_stack_length(*stack));
+				arr, stack_->value, ps_stack_length(*stack));
 		stack_ = stack_->next;
 	}
 }

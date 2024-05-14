@@ -7,8 +7,8 @@ static void	candy_crush(
 	int n
 )
 {
-	int	length;
 	int	i;
+	int	length;
 
 	i = 0;
 	length = ps_stack_length(*stack_a);
@@ -26,12 +26,12 @@ static void	candy_crush(
 			ps_stack_push(stack_b, stack_a, 'b');
 			i++;
 		}
-		else if (ps_find_index(*stack_a, i, n) < (ps_stack_length(*stack_a) / 2))
+		else if (
+			ps_find_index(*stack_a, i, n) < (ps_stack_length(*stack_a) / 2))
 			ra(stack_a);
 		else
 			rra(stack_a);
 	}
-	free(numbers);
 }
 
 static void	_sort_array(int *array, int size)
@@ -70,4 +70,5 @@ void	ps_sort_chunks(t_stack **stack_a, t_stack **stack_b)
 	_sort_array(array_, ps_stack_length(*stack_a));
 	candy_crush(stack_a, stack_b, array_, chunk_size);
 	ps_shift_all(stack_a, stack_b);
+	free(array_);
 }
