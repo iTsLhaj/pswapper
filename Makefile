@@ -28,6 +28,10 @@ FILES	=	src/moves/push.c						\
 OBJS	=	$(FILES:.c=.o)
 BFILES	=	lib/gnl/get_next_line.c						\
 			lib/gnl/get_next_line_utils.c				\
+			src/bonus/moves/push.c						\
+			src/bonus/moves/reverse_rotate.c			\
+			src/bonus/moves/rotate.c					\
+			src/bonus/moves/swap.c						\
 			src/bonus/parser/ps_parser_utils.c			\
 			src/bonus/parser/ps_parser.c				\
 			src/bonus/stack/ps_stack_append.c			\
@@ -35,6 +39,7 @@ BFILES	=	lib/gnl/get_next_line.c						\
 			src/bonus/stack/ps_stack_is_sorted.c		\
 			src/bonus/stack/ps_stack_last.c				\
 			src/bonus/stack/ps_stack_length.c			\
+			src/bonus/ps_interpret_moves.c				\
 			src/bonus/main.c
 BOBJS	=	$(BFILES:.c=.o)
 

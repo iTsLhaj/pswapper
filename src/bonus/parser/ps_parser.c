@@ -1,52 +1,71 @@
 #include <stack.h>
 
-static void	ps_parse_smol(t_stack **stack, char **argv)
+static void	ps_raise_error(void)
 {
-	int		i;
-	char	**args;
-
-	if (!ps_contain_space(argv[1]))
-	{
-		if (!ps_verify_single(argv[1]))
-			ps_raise_error();
-		ps_stack_append(stack, ft_atoi(argv[1]));
-	}
-	else
-	{
-		args = ft_split(argv[1], ' ');
-		if (!ps_verify_multi_(args))
-		{
-			free(args);
-			ps_raise_error();
-		}
-		i = 0;
-		while (args[i])
-			ps_stack_append(stack, ft_atoi(args[i++]));
-	}
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-static void	ps_parse_big(t_stack **stack, int argc, char **argv)
+static char	*stringify(int ac, char **av)
+{
+	char	*string;
+	char	*temp;
+	int		index;
+
+	string = NULL;
+	index = 1;
+	while (index < ac)
+	{
+		if (invalid((char *)av[index]))
+		{
+			free(string);
+			ps_raise_error();
+		}
+		temp = string;
+		string = join(ft_strjoin(string, av[index++]));
+		free(temp);
+	}
+	return (string);
+}
+
+static int	check_list(char **list)
 {
 	int	i;
+	int	j;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (list[i])
 	{
-		if (!ps_verify_single(argv[i]))
-		{
-			if (*stack)
-				ps_stack_free(stack);
-			ps_raise_error();
-		}
-		ps_stack_append(stack, ft_atoi(argv[i]));
+		j = 0;
+		if (list[i][j] == '-' || list[i][j] == '+')
+			j++;
+		if (ft_isalldigit(&list[i][j]))
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
-void	ps_argparse(t_stack	**stack, int argc, char **argv)
+void	ft_parser(t_stack **stack, int ac, char **av)
 {
-	if (argc == 2)
-		ps_parse_smol(stack, argv);
+	char	*str;
+	char	**lst;
+	int		i;
+
+	i = 0;
+	str = stringify(ac, av);
+	lst = ft_split(str, ' ');
+	if (check_list(lst))
+		ps_raise_error();
 	else
-		ps_parse_big(stack, argc, argv);
+	{
+		while (lst[i])
+			ps_stack_append(
+				stack, ft_atoi(lst[i++]));
+	}
+	free(str);
+	i = 0;
+	while (lst[i])
+		free(lst[i++]);
+	free(lst);
 }

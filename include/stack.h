@@ -1,6 +1,7 @@
 #ifndef STACK_H
 # define STACK_H
 
+# include <get_next_line.h>
 # include <libftprintf.h>
 # include <stdbool.h>
 # include <stdlib.h>
@@ -17,14 +18,13 @@ typedef struct s_stack
 	int				index;
 }	t_stack;
 
-/* parser utils | functions */
-bool	ps_verify_single(char *args_);
-bool	ps_verify_multi_(char **args_);
-void	ps_raise_error(void);
-bool	ps_contain_space(char *arg);
+/** @brief	some parser utils ! */
+int		invalid(char *str);
+char	*join(char *s);
+int		ft_isalldigit(char *s);
 
-/* parser */
-void	ps_argparse(t_stack	**stack, int argc, char **argv);
+/** @brief	the parser it self ! */
+void	ft_parser(t_stack **stack, int ac, char **av);
 
 /* stack utils | functions */
 t_stack	*ps_stack_last(t_stack *stack);
@@ -59,5 +59,8 @@ void	ps_stack_sthree(t_stack **stack_a);
 void	ps_stack_sfive(t_stack **stack_a, t_stack **stack_b);
 void	ps_stack_smore(t_stack **stack_a, t_stack **stack_b);
 void	ps_sort_chunks(t_stack **stack_a, t_stack **stack_b);
+
+/* bonus part related stuff ! */
+void	ps_check_moves(t_stack **stack_a, t_stack **stack_b);
 
 #endif

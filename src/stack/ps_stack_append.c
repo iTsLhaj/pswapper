@@ -6,6 +6,7 @@ t_stack	*ps_stack_append(t_stack **stack, int n)
 	t_stack	*end;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
+	ft_bzero((void *)new, sizeof(t_stack));
 	if (new == NULL)
 		return (NULL);
 	else

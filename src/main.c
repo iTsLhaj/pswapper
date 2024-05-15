@@ -9,7 +9,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (ac >= 2)
 	{
-		ps_argparse(&stack_a, ac, av);
+		ft_parser(&stack_a, ac, av);
 		if (!ps_stack_is_sorted(stack_a))
 		{
 			if (ps_stack_length(stack_a) == 2)
