@@ -5,6 +5,8 @@ static void	ps_stack_rotate(t_stack **stack)
 	t_stack	*new_head;
 	t_stack	*last;
 
+	if (*stack == NULL)
+		return ;
 	new_head = (*stack)->next;
 	if (new_head == NULL)
 		return ;

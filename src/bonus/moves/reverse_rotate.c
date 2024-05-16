@@ -5,6 +5,8 @@ static void	ps_stack_reverse_rotate(t_stack **stack)
 	t_stack	*last;
 	t_stack	*temp;
 
+	if (*stack == NULL)
+		return ;
 	last = ps_stack_last(*stack);
 	temp = last->prev;
 	if (!temp)
