@@ -35,3 +35,19 @@ int	ft_isalldigit(char *s)
 	}
 	return (0);
 }
+
+int	fetch(t_stack **stack_a, int target)
+{
+	t_stack	*stack;
+	int		count;
+
+	stack = *stack_a;
+	count = 0;
+	while (stack)
+	{
+		if (stack->value == target)
+			count++;
+		stack = stack->next;
+	}
+	return (count);
+}

@@ -22,6 +22,7 @@ typedef struct s_stack
 int		invalid(char *str);
 char	*join(char *s);
 int		ft_isalldigit(char *s);
+int		fetch(t_stack **stack_a, int target);
 
 /** @brief	the parser it self ! */
 void	ft_parser(t_stack **stack, int ac, char **av);

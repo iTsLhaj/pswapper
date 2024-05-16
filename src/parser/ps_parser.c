@@ -46,6 +46,22 @@ static int	check_list(char **list)
 	return (0);
 }
 
+static void	check_duplicates(t_stack **stack)
+{
+	t_stack	*stack_;
+
+	stack_ = *stack;
+	while (stack_)
+	{
+		if (fetch(stack, stack_->value) > 1)
+		{
+			ps_stack_free(stack);
+			ps_raise_error();
+		}
+		stack_ = stack_->next;
+	}
+}
+
 void	ft_parser(t_stack **stack, int ac, char **av)
 {
 	char	*str;
@@ -68,4 +84,5 @@ void	ft_parser(t_stack **stack, int ac, char **av)
 	while (lst[i])
 		free(lst[i++]);
 	free(lst);
+	check_duplicates(stack);
 }
