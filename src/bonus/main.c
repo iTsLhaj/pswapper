@@ -12,9 +12,9 @@ int	main(int ac, char **av)
 		ft_parser(&stack_a, ac, av);
 		ps_check_moves(&stack_a, &stack_b);
 		if (ps_stack_is_sorted(stack_a))
-			ft_printf("OK");
+			write(2, "OK", 2);
 		else
-			ft_printf("KO");
+			write(2, "KO", 2);
 	}
 	else
 		write(2, "Error\n", 6);

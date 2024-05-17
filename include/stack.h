@@ -4,6 +4,7 @@
 # include <get_next_line.h>
 # include <libftprintf.h>
 # include <stdbool.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>

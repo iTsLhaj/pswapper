@@ -37,8 +37,11 @@ static int	check_list(char **list)
 	while (list[i])
 	{
 		j = 0;
-		if (list[i][j] == '-' || list[i][j] == '+')
+		if ((list[i][j] == '-' && list[i][j + 1] != '\0')
+			|| (list[i][j] == '+' && list[i][j + 1] != '\0'))
 			j++;
+		else
+			return (1);
 		if (ft_isalldigit(&list[i][j]))
 			return (1);
 		i++;
@@ -67,12 +70,13 @@ void	ft_parser(t_stack **stack, int ac, char **av)
 	char	*str;
 	char	**lst;
 	int		i;
+	int		j;
 
 	i = 0;
 	str = stringify(ac, av);
 	lst = ft_split(str, ' ');
 	if (check_list(lst))
-		ps_raise_error();
+		i = -1;
 	else
 	{
 		while (lst[i])
@@ -80,9 +84,11 @@ void	ft_parser(t_stack **stack, int ac, char **av)
 				stack, ft_atoi(lst[i++]));
 	}
 	free(str);
-	i = 0;
-	while (lst[i])
-		free(lst[i++]);
+	j = 0;
+	while (lst[j])
+		free(lst[j++]);
 	free(lst);
+	if (i == -1)
+		ps_raise_error();
 	check_duplicates(stack);
 }
