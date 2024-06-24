@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmouhib <hmouhib@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 18:11:13 by hmouhib           #+#    #+#             */
+/*   Updated: 2024/05/18 21:20:14 by hmouhib          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STACK_H
 # define STACK_H
 
@@ -24,6 +36,8 @@ int		invalid(char *str);
 char	*join(char *s);
 int		ft_isalldigit(char *s);
 int		fetch(t_stack **stack_a, int target);
+char	*unzero(char *str);
+void	ps_fill_stack(t_stack **stack, char **list);
 
 /** @brief	the parser it self ! */
 void	ft_parser(t_stack **stack, int ac, char **av);

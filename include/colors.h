@@ -1,8 +1,14 @@
-/*
-	* This is free and unencumbered software released into the public domain.
-	*
-	* For more information, please refer to <https://unlicense.org>
-	*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   colors.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmouhib <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 18:11:00 by hmouhib           #+#    #+#             */
+/*   Updated: 2024/05/17 18:11:03 by hmouhib          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef COLORS_H
 # define COLORS_H

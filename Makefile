@@ -8,6 +8,7 @@ FILES	=	src/moves/push.c						\
 			src/moves/reverse_rotate.c				\
 			src/moves/rotate.c						\
 			src/moves/swap.c						\
+			src/parser/ps_parser_checker.c			\
 			src/parser/ps_parser_utils.c			\
 			src/parser/ps_parser.c					\
 			src/sorting/utils/ps_shift_back.c		\
@@ -32,6 +33,7 @@ BFILES	=	lib/gnl/get_next_line.c						\
 			src/bonus/moves/reverse_rotate.c			\
 			src/bonus/moves/rotate.c					\
 			src/bonus/moves/swap.c						\
+			src/parser/ps_parser_checker.c				\
 			src/bonus/parser/ps_parser_utils.c			\
 			src/bonus/parser/ps_parser.c				\
 			src/bonus/stack/ps_stack_append.c			\
@@ -48,26 +50,32 @@ all: mklibs $(NAME)
 bonus: mklibs $(BONUS)
 
 mklibs:
-	@make -C lib/libft
-	@make -C lib/ft_printf
+	@echo "building !"
+	@make -sC lib/libft
+	@make -sC lib/ft_printf
+	@echo "done ...!"
 
 $(NAME): $(OBJS) $(LIBS)
-	$(CC) -I include/ $(CFLAGS) $^ -o $@
+	@$(CC) -I include/ $(CFLAGS) $^ -o $@
 
 $(BONUS): $(BOBJS) $(LIBS)
-	$(CC) -I include/ $(CFLAGS) $^ -o $@
+	@$(CC) -I include/ $(CFLAGS) $^ -o $@
 
 %.o: %.c
-	$(CC) -I include/ $(CFLAGS) -c $< -o $@
+	@$(CC) -I include/ $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS) $(BOBJS)
-	@make -C lib/libft clean
-	@make -C lib/ft_printf clean
+	@echo "cleaning !"
+	@make -sC lib/libft clean
+	@make -sC lib/ft_printf clean
+	@echo "done ...!"
 
 fclean:
 	@rm -rf $(OBJS) $(BOBJS) $(BONUS) $(NAME)
-	@make -C lib/libft fclean
-	@make -C lib/ft_printf fclean
+	@echo "fully cleaning !"
+	@make -sC lib/libft fclean
+	@make -sC lib/ft_printf fclean
+	@echo "done ...!"
 
-re: fclean $(NAME)
+re: fclean all

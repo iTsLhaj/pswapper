@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_parser_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmouhib <hmouhib@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 18:14:10 by hmouhib           #+#    #+#             */
+/*   Updated: 2024/05/18 21:04:46 by hmouhib          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stack.h>
 
 int	invalid(char *str)
@@ -50,4 +62,16 @@ int	fetch(t_stack **stack_a, int target)
 		stack = stack->next;
 	}
 	return (count);
+}
+
+char	*unzero(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] == '0' && str[i])
+		i++;
+	return (ft_substr(str, i, ft_strlen(str)));
 }
